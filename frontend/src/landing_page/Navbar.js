@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-white border-bottom sticky-top" style={{ backgroundColor: "white" }}>
+    <nav className="navbar navbar-expand-lg bg-body-white border-bottom stickey-top" style={{ backgroundColor: "white" }}>
       <div className="container p-2">
         <Link className="navbar-brand" to="/">
           <img src="media/images/logoTradex.webp" alt="" style={{ width: "9%", borderRadius: "50%" }} />
