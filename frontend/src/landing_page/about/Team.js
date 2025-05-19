@@ -12,7 +12,7 @@ function Team() {
         {/* Image Column */}
         <div className="col-lg-6 col-md-12 text-center p-5">
           <img
-            src="media/1.jpg"
+            src="media/nithinKamath.jpg"
             alt="Wonder Women"
             className="rounded-circle img-fluid"
             style={{ width: "60%", maxWidth: "250px" }}
