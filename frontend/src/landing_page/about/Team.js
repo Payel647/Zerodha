@@ -13,7 +13,7 @@ function Team() {
         <div className="col-lg-6 col-md-12 text-center p-5">
           <img
             src="media/nithinKamath.jpg"
-            alt="Wonder Women"
+            alt="Wonder Person"
             className="rounded-circle img-fluid"
             style={{ width: "60%", maxWidth: "250px" }}
           />
