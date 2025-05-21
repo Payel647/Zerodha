@@ -21,7 +21,7 @@ const uri = process.env.MONGO_URL;
 const app = express();
 
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // const allowedOrigins = [
 //   "http://localhost:3000",
@@ -41,7 +41,11 @@ app.use(bodyParser.json());
 // );
 const cors = require('cors')
 const corsOption = {
-    origin: ['http://localhost:3000'],
+    origin: [
+        "http://localhost:3001",
+        "https://enchanting-kulfi-76f0df.netlify.app",
+        "https://localhost:3002",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
@@ -222,6 +226,7 @@ app.use(express.json());
 
 app.post('/signup',async (req,res,next) =>{
   try {
+    console.log(req.body);
     const { email, password, username, createdAt } = req.body;
     
     const existingUser = await UsersModel.findOne({ email });
@@ -246,37 +251,37 @@ app.post('/signup',async (req,res,next) =>{
   }
 });
 
-app.post("/login",async (req,res,next) => {
-  try {
-    const { email, password } = req.body;
-    if(!email || !password ){
-      return res.json({message:'All fields are required'})
-    }
-    const userExist = await UsersModel.findOne({ email });
+// app.post("/login",async (req,res,next) => {
+//   try {
+//     const { email, password } = req.body;
+//     if(!email || !password ){
+//       return res.json({message:'All fields are required'})
+//     }
+//     const userExist = await UsersModel.findOne({ email });
 
-    if(!userExist){
-      return res.json({message:'Invalid credentials' }) 
-    }
+//     if(!userExist){
+//       return res.json({message:'Invalid credentials' }) 
+//     }
 
-    const user = await userExist.comparePassword(password);
+//     const user = await userExist.comparePassword(password);
 
-    if (user) {
-  res
-    .status(201)
-    .json({
-      status: true, // ✅ add this line
-      message: "User logged in successfully",
-      token: await userExist.generateToken(),
-      userId: userExist._id.toString()
-    });
-} else {
-  res.status(401).json({ status: false, message: "Invalid email or password" });
-}
+//     if (user) {
+//   res
+//     .status(201)
+//     .json({
+//       status: true,
+//       message: "User logged in successfully",
+//       token: await userExist.generateToken(),
+//       userId: userExist._id.toString()
+//     });
+// } else {
+//   res.status(401).json({ status: false, message: "Invalid email or password" });
+// }
      
-  } catch (error) {
-    console.error(error);
-  }
-});
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 app.post("/",(req,res)=>{
   const token = req.cookies.token
@@ -328,8 +333,7 @@ app.get("/allOrders", async (req, res) => {
       res.status(500).json({ message: "Internal server error" });
     }
 });
-  
-app.delete("/orders/:id", async (req, res) => {
+ app.delete("/orders/:id", async (req, res) => {
     try {
       await OrdersModel.findByIdAndDelete(req.params.id);
       res.status(200).json({ message: "Order deleted successfully" });
@@ -338,8 +342,7 @@ app.delete("/orders/:id", async (req, res) => {
       res.status(500).json({ message: "Failed to delete order" });
     }
   });
-  
-
+   
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
   mongoose.connect(uri);

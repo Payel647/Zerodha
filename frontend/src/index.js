@@ -12,6 +12,7 @@ import SupportPage from "./landing_page/support/SupportPage";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 import NotFound from './landing_page/NotFound';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 function Universe() {
   return (
     <div className="container mt-5">
@@ -28,9 +28,10 @@ function Universe() {
 
         {/* Signup Button */}
         <div className="d-flex justify-content-center mt-3">
-          <button className="p-2 btn btn-primary fs-5 mb-5" style={{ width: "200px" }}>
+          <Link to={"/signup"}><button className="p-2 btn btn-primary fs-5 mb-5" style={{ width: "200px" }}>
             Signup Now
           </button>
+          </Link>
         </div>
       </div>
     </div>
