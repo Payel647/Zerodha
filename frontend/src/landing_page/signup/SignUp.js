@@ -23,7 +23,7 @@ function SignUp() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:3002/signup", {
+    const res = await axios.post("https://zerodhabackend-petd.onrender.com/signup", {
       email,
       password,
       username,
