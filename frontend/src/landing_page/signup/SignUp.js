@@ -23,13 +23,13 @@ function SignUp() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://zerodhabackend-petd.onrender.com/signup", {
+    const res = await axios.post("http://localhost:3002/signup", {
       email,
       password,
       username,
     });
     if (res.data.status) {
-      window.location.href = "http://localhost:3001"; // or any route you want
+      window.location.href = "http://localhost:3000"; // or any route you want
     } else {
       alert(res.data.message);
     }

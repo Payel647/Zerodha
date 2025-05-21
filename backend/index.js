@@ -43,14 +43,13 @@ const cors = require('cors')
 const corsOption = {
     origin: [
         "http://localhost:3001",
-        "https://enchanting-kulfi-76f0df.netlify.app",
+        "http://localhost:3000",
         "https://localhost:3002",
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
 app.use(cors(corsOption));
-
 app.use(cookieParser());
 app.use(express.json());
 
@@ -311,17 +310,22 @@ app.get('/allPositions',async(req,res) =>{
 });
 
 app.post("/newOrder" ,async(req,res)=>{
-    let newOrder = new OrdersModel({
+    try{
+      let newOrder = new OrdersModel({
         name:req.body.name,
         qty: req.body.qty,
         price: req.body.price,
         mode: req.body.mode,
     });
 
-    newOrder.save();
+    await newOrder.save();
 
-    res.send("Order saved!");
+    res.json({ status: true, message: "Order saved!" });
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ status: false, message: "Error saving order" });     
   }
+}
 );
 
 app.get("/allOrders", async (req, res) => {

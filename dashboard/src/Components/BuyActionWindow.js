@@ -11,14 +11,24 @@ const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
-  const handleBuyClick = () => {
-    axios.post("https://zerodhabackend-petd.onrender.com/newOrder", {
+  const handleBuyClick = async() => {
+    try{
+     const res= await axios.post("http://localhost:3002/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
       mode: "BUY",
     });
-    GeneralContext.closeBuyWindow();
+    if (res.data.status) {
+      window.location.href = "http://localhost:3000/orders"; // or any route you want
+    } else {
+      alert(res.data.message);
+    }
+  }
+  catch(err){  
+    console.log(err);
+    alert("Error saving order");      
+  }
    
   };
 

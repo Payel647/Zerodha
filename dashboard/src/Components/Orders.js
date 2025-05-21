@@ -11,14 +11,14 @@ const Orders = () => {
     fetchOrders();
   }, []);
  const fetchOrders = () => {
-    axios.get("https://zerodhabackend-petd.onrender.com/allOrders")
+    axios.get("http://localhost:3002/allOrders")
       .then((res) => {
         setAllOrders(res.data);
       })
       .catch((err) => console.error("Error fetching orders:", err));
   };
   const handleDelete = (id) => {
-    axios.delete(`https://zerodhabackend-petd.onrender.com/${id}`)
+    axios.delete(`http://localhost:3002/orders/${id}`)
       .then(() => {
         setAllOrders((prevOrders) => prevOrders.filter(order => order._id !== id));
       })
