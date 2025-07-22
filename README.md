@@ -41,7 +41,7 @@ git clone https://github.com/Payel647/Zerodha.git
 
 ## 📷 Screenshots
 
-![Home Page](Zerosdha.png)
+![Home Page](https://github.com/Payel647/Zerodha/blob/main/zerodha.png)
 
 ## 📬 Contact
 
