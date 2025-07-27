@@ -9,27 +9,14 @@ A full-stack stock trading platform inspired by Zerodha, featuring real-time sto
 - 📈 **Dynamic Charts** for stock performance
 
 ## 💻 Tech Stack
-
-### Frontend
-- React.js
-- Axios
-- Chart.js 
-- Tailwind CSS
-- Bootstrap 
-- React Router
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT (JSON Web Token)
-- Bcrypt.js
+| Frontend     | Backend    | Tools & Libraries       |
+| ------------ | ---------- | ----------------------- |
+| React.js     | Node.js    | Axios                   |
+| Tailwind CSS | Express.js | Chart.js                |
+| Bootstrap    | MongoDB    | JWT (JSON Web Token)    |
+| React Router | Bcrypt.js  | dotenv (for env config) |
 
 ## 🚀 Getting Started
-
-### Prerequisites
-- Node.js
-- MongoDB
 
 ### Installation
 
@@ -44,5 +31,5 @@ git clone https://github.com/Payel647/Zerodha.git
 ![Home Page](https://github.com/Payel647/Zerodha/blob/main/zerodha.png)
 
 ## 📬 Contact
-
-Created by [Payel Mallick](https://github.com/Payel647) — feel free to reach out!
+**Made by Payel Mallick**  
+B.Tech IT | Full Stack Developer  
