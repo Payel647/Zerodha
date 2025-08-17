@@ -41,11 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // );
 const cors = require('cors')
 const corsOption = {
-    origin: [
-        "http://localhost:3001",
-        "http://localhost:3000",
-        "https://localhost:3002",
-    ],
+    origin: "*",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 }
